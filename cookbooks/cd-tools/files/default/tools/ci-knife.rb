@@ -11,6 +11,8 @@ cache_type               'BasicFile'
 cache_options( :path => "#{current_dir}/.ci/checksums" )
 if File.exists?(File.join(ENV['WORKSPACE'], "chef-repo"))
   cookbook_path            ["#{ENV['WORKSPACE']}/chef-repo/cookbooks"]
-else
+elsif File.exists?(File.join(ENV['WORKSPACE'], "cookbooks"))
   cookbook_path            ["#{ENV['WORKSPACE']}/cookbooks"]
+else
+  cookbook_path            ["#{ENV['WORKSPACE']}"]
 end
