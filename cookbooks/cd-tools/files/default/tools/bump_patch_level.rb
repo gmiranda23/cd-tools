@@ -23,35 +23,29 @@ end
 
 updated = false
 
-if !system("git checkout master")
-  raise "Failed to checkout master"
+if !system("git checkout pre-master")
+  raise "Failed to checkout pre-master"
 end
 
-seen_cookbooks = [] 
+if !system("git pull")
+  raise "Failed to git pull pre-master"
+end
 
-STDIN.each_line do |diff_line|
-  if diff_line =~ /^(.)\s+cookbooks\/(.+)/
-    next if $1 == "D"
-    cookbook = $2.split('/').first
-    next if seen_cookbooks.include?(cookbook)
-  else
-    next
-  end
-  metadata_file = File.expand_path(File.join("cookbooks", cookbook, "metadata.rb"))
+if File.exists?('metadata.rb')
+  metadata_file = File.expand_path("metadata.rb")
   bump_patch_level(metadata_file)
-  if !system("git add #{metadata_file}") 
+  if !system("git add #{metadata_file}")
     raise "Failed to git add #{metdata_file}: #{$?}"
   end
-  seen_cookbooks << cookbook
   updated = true
 end
 
 if updated
-  if !system("git commit -m 'Updated patch level for #{seen_cookbooks.join(', ')}'")
+  if !system("git commit -m 'Updated patch level for cookbook'")
     raise "Failed to git commit"
   end
 
-  if !system("git push origin master") 
+  if !system("git push origin pre-master")
     raise "Failed to git push"
   end
 end
