@@ -21,8 +21,8 @@ end
 
 cookbook_data = Array.new
 
-if File.exists?('metadata.rb')
-  metadata_file = File.expand_path("metadata.rb")
+if File.exists?(File.expand_path(File.join(ARGV[1], 'metadata.rb')))
+  metadata_file = File.expand_path(File.join(ARGV[1], 'metadata.rb'))
   File.read(metadata_file).each_line do |line|
     if line =~ /^name\s+["'](\w+)["'].*$/
       cookbook_data << $1
@@ -35,13 +35,5 @@ end
 
 cookbook_versions = Hash[*cookbook_data]
 
-if ARGV[1] == "integration"
-  Chef::Environment.list.each do |env, uri|
-    if env != ARGV[0] && env =~ /^(dev-|integration)/
-      pin_env(env, cookbook_versions)
-    end
-  end
-else
-  pin_env(ARGV[0], cookbook_versions)
-end
+pin_env(ARGV[0], cookbook_versions)
 
