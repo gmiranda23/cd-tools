@@ -15,4 +15,3 @@ package "libxslt-devel"
 gem_package "foodcritic" do
   gem_binary "/opt/chef/embedded/bin/gem"
 end
-

@@ -21,8 +21,8 @@ end
 
 cookbook_data = Array.new
 
-if File.exists?(File.expand_path(File.join(ARGV[1], 'metadata.rb')))
-  metadata_file = File.expand_path(File.join(ARGV[1], 'metadata.rb'))
+if File.exists?(File.expand_path(File.join(ENV['WORKSPACE'], 'metadata.rb')))
+  metadata_file = File.expand_path(File.join(ENV['WORKSPACE'], 'metadata.rb'))
   File.read(metadata_file).each_line do |line|
     if line =~ /^name\s+["'](\w+)["'].*$/
       cookbook_data << $1
@@ -36,4 +36,3 @@ end
 cookbook_versions = Hash[*cookbook_data]
 
 pin_env(ARGV[0], cookbook_versions)
-

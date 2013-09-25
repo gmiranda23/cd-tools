@@ -23,12 +23,12 @@ end
 
 updated = false
 
-if !system("git checkout pre-master")
-  raise "Failed to checkout pre-master"
+if !system("git checkout master")
+  raise "Failed to checkout master"
 end
 
 if !system("git pull")
-  raise "Failed to git pull pre-master"
+  raise "Failed to git pull master"
 end
 
 if File.exists?('metadata.rb')
@@ -45,7 +45,7 @@ if updated
     raise "Failed to git commit"
   end
 
-  if !system("git push origin pre-master")
+  if !system("git push origin master")
     raise "Failed to git push"
   end
 end
