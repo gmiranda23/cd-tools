@@ -6,7 +6,9 @@
 require 'chef/environment'
 require 'chef'
 
-Chef::Config.from_file(File.expand_path(File.join(ENV['WORKSPACE'], "ci-knife.rb")))
+#Chef::Config.from_file(File.expand_path(File.join(ENV['WORKSPACE'], "ci-knife.rb")))
+#Chef::Config.from_file("/var/lib/jenkins/tools/ci-knife.rb")
+Chef::Config.from_file("/var/lib/jenkins/tools/ci-test-knife.rb")
 
 def pin_env(env, cookbook_versions)
   to = Chef::Environment.load(env)
@@ -17,25 +19,21 @@ def pin_env(env, cookbook_versions)
   to.save
 end
 
-cookbook_versions = {}
+cookbook_data = Array.new
 
-Dir["#{Chef::Config['cookbook_path'][0]}/*"].each do |cookbook|
-  next unless File.directory?(cookbook)
-  metadata_file = File.expand_path(File.join(cookbook, "metadata.rb"))
+if File.exists?(File.expand_path(File.join(ARGV[1], 'metadata.rb')))
+  metadata_file = File.expand_path(File.join(ARGV[1], 'metadata.rb'))
   File.read(metadata_file).each_line do |line|
+    if line =~ /^name\s+["'](\w+)["'].*$/
+      cookbook_data << $1
+    end
     if line =~ /^version\s+["'](\d+\.\d+\.\d+)["'].*$/
-      cookbook_versions[File.basename(cookbook)] = "= #{$1}"
+      cookbook_data << "= #{$1}"
     end
   end
 end
 
-if ARGV[1] == "integration"
-  Chef::Environment.list.each do |env, uri|
-    if env != ARGV[0] && env =~ /^(dev-|integration)/
-      pin_env(env, cookbook_versions)
-    end
-  end
-else
-  pin_env(ARGV[0], cookbook_versions)
-end
+cookbook_versions = Hash[*cookbook_data]
+
+pin_env(ARGV[0], cookbook_versions)
 
