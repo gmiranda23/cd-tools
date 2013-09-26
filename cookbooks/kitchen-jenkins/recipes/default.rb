@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-include_recipe "virtualbox"
+include_recipe "virtualbox" unless Chef::Config[:solo]  # using solo to flag test-kitchen runs
 include_recipe "vagrant"
 include_recipe "jenkins::server"
 

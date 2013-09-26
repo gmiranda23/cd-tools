@@ -9,8 +9,8 @@
 
 include_recipe "build-essential"
 
-package "libxml2-devel"
-package "libxslt-devel"
+package "libxml2-dev"
+package "libxslt-dev"
 
 gem_package "foodcritic" do
   gem_binary "/opt/chef/embedded/bin/gem"

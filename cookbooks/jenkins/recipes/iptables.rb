@@ -19,7 +19,7 @@
 # limitations under the License.
 #
 
-if platform?("redhat","centos","debian","ubuntu")
+if platform_family?("debian", "rhel")
   include_recipe "iptables"
   iptables_rule "port_jenkins" do
     if node['jenkins']['iptables_allow'] == "enable"

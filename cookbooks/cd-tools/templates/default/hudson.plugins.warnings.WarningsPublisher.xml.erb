@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<hudson.plugins.warnings.WarningsDescriptor>
-  <helpRedirect/>
+<hudson.plugins.warnings.WarningsDescriptor plugin="warnings@4.35">
   <groovyParsers>
     <hudson.plugins.warnings.GroovyParser>
       <name>Foodcritic</name>
@@ -14,8 +13,8 @@ String message = matcher.group(2)
 
 return new Warning(fileName, Integer.parseInt(lineNumber), &quot;Chef Lint Warning&quot;, category, message);</script>
       <example>FC001: Use strings in preference to symbols to access node attributes: ./recipes/innostore.rb:30</example>
-      <linkName>Foodcritic</linkName>
-      <trendName>Foodcritic Trends</trendName>
+      <linkName>Foodcritic Trends</linkName>
+      <trendName>Chef Reviews</trendName>
     </hudson.plugins.warnings.GroovyParser>
   </groovyParsers>
 </hudson.plugins.warnings.WarningsDescriptor>
