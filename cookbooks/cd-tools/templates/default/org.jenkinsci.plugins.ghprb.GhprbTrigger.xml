@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<org.jenkinsci.plugins.ghprb.GhprbTrigger_-DescriptorImpl plugin="ghprb@1.9">
+  <serverAPIUrl>https://code.apple.com/api/v3</serverAPIUrl>
+  <username>gmiranda</username>
+  <password>Applecode4me</password>
+  <accessToken>cfad24dd48a5f0f8ef50af88ecbdf2a60601ab51</accessToken>
+  <adminlist>gmiranda</adminlist>
+  <publishedURL></publishedURL>
+  <requestForTestingPhrase>Can one of the admins verify this patch?</requestForTestingPhrase>
+  <whitelistPhrase>.*add\W+to\W+whitelist.*</whitelistPhrase>
+  <okToTestPhrase>.*ok\W+to\W+test.*</okToTestPhrase>
+  <retestPhrase>.*test\W+this\W+please.*</retestPhrase>
+  <cron>*/5 * * * *</cron>
+  <useComments>false</useComments>
+  <unstableAs>FAILURE</unstableAs>
+  <autoCloseFailedPullRequests>false</autoCloseFailedPullRequests>
+  <msgSuccess>Test PASSed.</msgSuccess>
+  <msgFailure>Test FAILed.</msgFailure>
+  <jobs>
+    <entry>
+      <string>workflowtest</string>
+      <map/>
+    </entry>
+    <entry>
+      <string>redis</string>
+      <map/>
+    </entry>
+    <entry>
+      <string>base</string>
+      <map>
+        <entry>
+          <int>1</int>
+          <org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+            <id>1</id>
+            <author>gmiranda</author>
+            <title>prtest1</title>
+            <updated>2013-09-25 21:08:34.0 UTC</updated>
+            <head>453c472ea16a6c8b941b19fe3556232060751a92</head>
+            <mergeable>true</mergeable>
+            <reponame>retailops/gmiranda-base</reponame>
+            <target>master</target>
+            <authorEmail>gmiranda@apple.com</authorEmail>
+            <shouldRun>false</shouldRun>
+            <accepted>true</accepted>
+            <triggered>false</triggered>
+          </org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+        </entry>
+      </map>
+    </entry>
+    <entry>
+      <string>java</string>
+      <map/>
+    </entry>
+    <entry>
+      <string>gmiranda-workflowtest</string>
+      <map/>
+    </entry>
+    <entry>
+      <string>gmiranda-test-check-cookbook</string>
+      <map>
+        <entry>
+          <int>15</int>
+          <org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+            <id>15</id>
+            <author>gmiranda</author>
+            <title>Gitprbuilder</title>
+            <updated>2013-09-25 03:27:17.0 UTC</updated>
+            <head>41e4ee9f265651b885022d5f445184d458b76be2</head>
+            <mergeable>true</mergeable>
+            <reponame>retailops/gmiranda-test</reponame>
+            <target>master</target>
+            <authorEmail>gmiranda@apple.com</authorEmail>
+            <shouldRun>false</shouldRun>
+            <accepted>true</accepted>
+            <triggered>false</triggered>
+          </org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+        </entry>
+      </map>
+    </entry>
+  </jobs>
+</org.jenkinsci.plugins.ghprb.GhprbTrigger_-DescriptorImpl>

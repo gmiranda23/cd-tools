@@ -10,9 +10,12 @@ chef_server_url          ENV['CHEF_SERVER_URL']
 cache_type               'BasicFile'
 cache_options( :path => "#{current_dir}/.ci/checksums" )
 if File.exists?(File.join(ENV['WORKSPACE'], "chef-repo"))
-  cookbook_path            ["#{ENV['WORKSPACE']}/chef-repo/cookbooks"]
+  cookbook_path          ["#{ENV['WORKSPACE']}/chef-repo/cookbooks"]
 elsif File.exists?(File.join(ENV['WORKSPACE'], "cookbooks"))
-  cookbook_path            ["#{ENV['WORKSPACE']}/cookbooks"]
+  cookbook_path          ["#{ENV['WORKSPACE']}/cookbooks"]
 else
-  cookbook_path            ["#{ENV['WORKSPACE']}"]
+  cookbook_path          ["#{ENV['WORKSPACE']}"]
 end
+
+knife[:ssh_user] =       ENV['KNIFE_SSH_USER']
+knife[:ssh_password] =   ENV['KNIFE_SSH_PASSWORD']

@@ -1,0 +1,22 @@
+metadata
+
+cookbook "apt", path: "../apt"
+cookbook "build-essential", path: "../build-essential"
+cookbook "apache2", path: "../apache2"
+cookbook "java", path: "../java"
+cookbook "git", path: "../git"
+cookbook "virtualbox", path: "../virtualbox"
+cookbook "vagrant", path: "../vagrant"
+cookbook "jenkins", path: "../jenkins"
+cookbook "kitchen-jenkins", path: "../kitchen-jenkins"
+cookbook "foodcritic", path: "../foodcritic"
+cookbook "berkshelf", path: "../berkshelf"
+
+cookbook "windows", path: "../windows"
+cookbook "chef_handler", path: "../chef_handler"
+cookbook "dmg", path: "../dmg"
+cookbook "yum", path: "../yum"
+cookbook "runit", path: "../runit"
+cookbook "nginx", path: "../nginx"
+cookbook "ohai", path: "../ohai"
+cookbook "iptables", path: "../iptables"

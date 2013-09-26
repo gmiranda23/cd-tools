@@ -4,5 +4,11 @@
   "node_name": "jenkins",
   "client_key": "/var/lib/jenkins/.chef/opscode-cd-jenkins.pem",
   "github_browser": "http://github.com/adamhjk/cd-tools/",
-  "food_critic_options": "-f correctness -f ~FC017 -t any"
+  "food_critic_options": "-f correctness -f ~FC017 -t any",
+  "git_fqdn": "github.com",
+  "git_project_owner": "gmiranda23",
+  "pull_request_admins": "gmiranda23, adamhjk, lnxchk, jonsmorrow"
+  "git_config_name": "gmiranda",
+  "git_config_email": "gmiranda@opscode.com",
+  "environment_repo": "cd-tools-chef-repo"
 }

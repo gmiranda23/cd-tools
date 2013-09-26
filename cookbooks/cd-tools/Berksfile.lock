@@ -1,0 +1,64 @@
+{
+  "sources": {
+    "cd-tools": {
+      "path": "."
+    },
+    "apt": {
+      "path": "../apt"
+    },
+    "build-essential": {
+      "path": "../build-essential"
+    },
+    "apache2": {
+      "path": "../apache2"
+    },
+    "java": {
+      "path": "../java"
+    },
+    "git": {
+      "path": "../git"
+    },
+    "virtualbox": {
+      "path": "../virtualbox"
+    },
+    "vagrant": {
+      "path": "../vagrant"
+    },
+    "jenkins": {
+      "path": "../jenkins"
+    },
+    "kitchen-jenkins": {
+      "path": "../kitchen-jenkins"
+    },
+    "foodcritic": {
+      "path": "../foodcritic"
+    },
+    "berkshelf": {
+      "path": "../berkshelf"
+    },
+    "windows": {
+      "path": "../windows"
+    },
+    "chef_handler": {
+      "path": "../chef_handler"
+    },
+    "dmg": {
+      "path": "../dmg"
+    },
+    "yum": {
+      "path": "../yum"
+    },
+    "runit": {
+      "path": "../runit"
+    },
+    "nginx": {
+      "path": "../nginx"
+    },
+    "ohai": {
+      "path": "../ohai"
+    },
+    "iptables": {
+      "path": "../iptables"
+    }
+  }
+}
